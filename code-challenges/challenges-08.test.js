@@ -23,6 +23,9 @@ const createServer = () => {
 
 function sayHello(request, response){
   // Solution code here...
+
+  response.send('Hello from the back-end');
+
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -35,7 +38,15 @@ For example, oddValues([1,2,3]) returns [1,3].
 
 const oddValues = (arr) => {
   // Solution code here...
+
+let odds = arr.filter( function(value,idx){
+  return (value % 2);
+  });
+  return odds;
+}
+
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -48,9 +59,20 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 ------------------------------------------------------------------------------------------------ */
 
 
+
 const filterStringsWithVowels = (arr) => {
-  // Solution code here...
+//   // Solution code here...
+//   let vowels = arr.filter( function(value,idx){
+//     if 
+//     // regx expression
+//     return // somthing
+//     });
+//     return vowels;
+
+
+
 };
+
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -63,6 +85,14 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 
 const notInFirstArray = (forbiddenValues, arr) => {
   // Solution code here...
+
+let notIncluded = arr.filter((arrValue) => {
+  if(!forbiddenValues.includes(arrValue)){
+    return arrValue;
+  }
+  })
+  return notIncluded;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -231,7 +261,9 @@ describe('Testing challenge 2', () => {
   });
 });
 
+
 describe('Testing challenge 3', () => {
+
   test('It should return an array containing only words that have vowels', () => {
     expect(filterStringsWithVowels(['gregor','hound','xyz'])).toStrictEqual(['gregor', 'hound']);
     expect(filterStringsWithVowels(['gregor','hound','xyz']).length).toStrictEqual(2);
